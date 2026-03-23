@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Browser"
+rootProject.name = "Noir"
 include(":app")
