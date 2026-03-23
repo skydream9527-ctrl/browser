@@ -32,6 +32,12 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.Browser" />
             
+        <activity
+            android:name=".MultiWindowBrowserActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.Browser"
+            android:windowSoftInputMode="adjustResize" />
+            
     </application>
 
 </manifest>

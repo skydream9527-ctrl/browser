@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openBrowser(url: String) {
-        val intent = Intent(this, BrowserActivity::class.java).apply {
+        val intent = Intent(this, MultiWindowBrowserActivity::class.java).apply {
             putExtra("url", url)
         }
         startActivity(intent)

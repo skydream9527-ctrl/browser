@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardTab"
+    android:layout_width="140dp"
+    android:layout_height="160dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- 关闭按钮 -->
+        <ImageButton
+            android:id="@+id/btnCloseTab"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_close"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="关闭标签页" />
+
+        <!-- 预览区域 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/light_gray"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 标题 -->
+        <TextView
+            android:id="@+id/tvTabTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标签页标题"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- URL -->
+        <TextView
+            android:id="@+id/tvTabUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="网址"
+            android:textSize="10sp"
+            android:textColor="@color/gray"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
