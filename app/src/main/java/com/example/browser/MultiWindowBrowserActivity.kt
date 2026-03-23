@@ -366,7 +366,8 @@ class MultiWindowBrowserActivity : AppCompatActivity() {
     
     private fun updateTabCount() {
         val count = tabManager.getTabCount()
-        binding.btnTabs.text = count.toString()
+        // ImageButton 不支持 text 属性，使用 contentDescription 或忽略
+        binding.btnTabs.contentDescription = "标签页 ($count)"
     }
     
     override fun onBackPressed() {
