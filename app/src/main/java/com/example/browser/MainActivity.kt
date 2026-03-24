@@ -170,9 +170,10 @@ class MainActivity : AppCompatActivity() {
             moveTaskToBack(true)
         }
 
-        // 我的 - 暂无功能，显示提示
+        // 我的 - 打开个人中心页面
         binding.btnProfile.setOnClickListener {
-            Toast.makeText(this, "我的页面功能开发中", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 
