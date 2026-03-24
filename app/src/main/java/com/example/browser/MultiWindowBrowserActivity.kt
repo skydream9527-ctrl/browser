@@ -57,6 +57,10 @@ class MultiWindowBrowserActivity : AppCompatActivity() {
             val activeTab = tabManager.getActiveTab()
             if (activeTab != null && activeTab.url.isNotEmpty()) {
                 showTab(activeTab)
+            } else {
+                // 没有活动标签页，创建一个新的空白标签页
+                val newTab = tabManager.createNewTab()
+                showTab(newTab)
             }
         }
     }
@@ -213,7 +217,12 @@ class MultiWindowBrowserActivity : AppCompatActivity() {
         var webView = webViews[tab.id]
         if (webView == null) {
             webView = createWebView(tab)
+            binding.webViewContainer.addView(webView)
         }
+        
+        // 隐藏其他WebView，显示当前
+        webViews.values.forEach { it.visibility = View.GONE }
+        webView.visibility = View.VISIBLE
         
         // 修复URL处理逻辑
         val finalUrl = when {
@@ -229,6 +238,7 @@ class MultiWindowBrowserActivity : AppCompatActivity() {
         
         webView.loadUrl(finalUrl)
         tabManager.updateTab(tab.id, url = finalUrl)
+        binding.etUrl.setText(finalUrl)
     }
     
     private fun showTab(tab: Tab) {
