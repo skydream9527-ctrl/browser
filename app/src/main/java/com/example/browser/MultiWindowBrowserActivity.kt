@@ -109,7 +109,7 @@ class MultiWindowBrowserActivity : AppCompatActivity() {
             settings.loadWithOverviewMode = true
             settings.domStorageEnabled = true
             settings.cacheMode = WebSettings.LOAD_DEFAULT
-            settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+            settings.mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW
             // 增加稳定性设置
             settings.setSupportMultipleWindows(true)
             settings.javaScriptCanOpenWindowsAutomatically = true
@@ -180,14 +180,11 @@ class MultiWindowBrowserActivity : AppCompatActivity() {
                     handler: SslErrorHandler?,
                     error: SslError?
                 ) {
-                    // 处理SSL错误，给用户选择
+                    // 处理SSL错误，默认拒绝访问
                     AlertDialog.Builder(this@MultiWindowBrowserActivity)
                         .setTitle("SSL证书错误")
-                        .setMessage("该网站的SSL证书存在问题，是否继续访问？\n错误: ${error?.toString()}")
-                        .setPositiveButton("继续") { _, _ ->
-                            handler?.proceed()
-                        }
-                        .setNegativeButton("取消") { _, _ ->
+                        .setMessage("该网站的SSL证书存在问题，已拒绝访问。\n错误: ${error?.toString()}")
+                        .setNegativeButton("返回") { _, _ ->
                             handler?.cancel()
                         }
                         .show()

@@ -69,7 +69,7 @@ class BrowserActivity : AppCompatActivity() {
         settings.cacheMode = WebSettings.LOAD_DEFAULT
         
         // 启用混合内容模式（允许HTTPS页面加载HTTP资源）
-        settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+        settings.mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW
         
         // 设置User Agent
         settings.userAgentString = settings.userAgentString + " BrowserApp/1.0"
